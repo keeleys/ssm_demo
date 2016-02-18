@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="telephone=no" name="format-detection" />
+<title>list</title>
+<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+
+
+</head>
+
+<body>
+
+<table>
+	<tr>
+		<th>id</th>
+		<th>name</th>
+		<th>oper</th>
+	</tr>
+	@for(user in page.list){
+	<tr>
+		<td>${user.id}</td>
+		<td>${user.name}</td>
+		<td><a href="/userDetail/${user.id}.html">查看详情</a> </td>
+	</tr>
+	@}
+</table>
+@for(var i=1 ;i<page.pages ;i++){
+<a href='/list-${i}.html' class='inactive' >${i}</a>
+@}
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<header class="yc_bar">
+    <div class="yc_bar_top co">
+        <div class="yc_right fr">
+            <ul class="yc_menu_top co">
+                @var cat = type!'index';
+                <li class="${cat=='index'?'current-cat'}"><a title="首页" href="/index.html">首 页</a></li>
+                <li class="cat-item cat-item-1 ${cat=='atb'?'current-cat'}"><a href="/list-atb-1.html" >时尚搭配</a></li>
+                <li class="cat-item cat-item-2 ${cat=='miiee'?'current-cat'}"><a href="/list-miiee-1.html" >搭配资讯</a></li>
+            </ul>
+
+            <div id="nav-phone">
+                <div class="btn open"><ul><li></li><li></li><li></li></ul></div>
+                <div class="btn close"><ul><li></li><li></li><li></li></ul></div>
+                <nav class="nav-phone">
+                    <ul class="menu">
+                        <li class="current-cat"><a title="首页" href="/index.html">首 页</a></li>
+                        <li class="cat-item cat-item-1"><a href="/list-miiee-1.html" >时尚搭配</a></li>
+                        <li class="cat-item cat-item-2"><a href="/list-atb-1.html" >搭配资讯</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <h1 class="logo"><a href="/index.html" title="【美图控】分享唯美女装日系田园小清新服装,百搭森女系气质文艺复古女装搭配">美图控时尚搭配</a></h1>
+    </div>
+</header>
