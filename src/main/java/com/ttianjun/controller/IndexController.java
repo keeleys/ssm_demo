@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.ttianjun.base.BaseController;
+import org.springframework.web.bind.annotation.ResponseBody;
 import redis.clients.jedis.ShardedJedis;
 import redis.clients.jedis.ShardedJedisPool;
 
@@ -55,10 +56,12 @@ public class IndexController extends BaseController {
 	private ShardedJedisPool shardedJedisPool;
 
 	@RequestMapping(value="/redis.html")
-	public String redis(){
+	@ResponseBody
+	public User redis(){
 		ShardedJedis jedis =  shardedJedisPool.getResource();
-		jedis.append("tian","juns");
-		System.out.println(jedis.get("tian"));
-		return "/template/detail";
+		User user = new User();
+		user.setId(1);
+		user.setName(jedis.get("tian"));
+		return user;
 	}
 }
