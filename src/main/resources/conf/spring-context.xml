@@ -38,4 +38,5 @@
 	</bean>
 
 	<import resource="spring-redis.xml"/>
+	<import resource="spring-cxf.xml"/>
 </beans>

@@ -1,8 +1,12 @@
 package com.ttianjun.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
+import com.alibaba.dubbo.remoting.p2p.Group;
 import com.github.pagehelper.PageInfo;
+import com.ttianjun.bean.Order;
 import com.ttianjun.mapper.UserMapper;
 import com.ttianjun.model.User;
+import com.ttianjun.service.OrderService;
 import com.ttianjun.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +18,7 @@ import redis.clients.jedis.ShardedJedis;
 import redis.clients.jedis.ShardedJedisPool;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @description 
@@ -55,7 +60,7 @@ public class IndexController extends BaseController {
 	@Resource
 	private ShardedJedisPool shardedJedisPool;
 
-	@RequestMapping(value="/redis.html")
+	@RequestMapping(value="/redis")
 	@ResponseBody
 	public User redis(){
 		ShardedJedis jedis =  shardedJedisPool.getResource();
@@ -64,4 +69,15 @@ public class IndexController extends BaseController {
 		user.setName(jedis.get("tian"));
 		return user;
 	}
+
+	@Reference(group = "sz")
+	private OrderService orderService;
+
+	@RequestMapping(value="/dubbo")
+	@ResponseBody
+	public List<Order> dubbo(){
+		return orderService.getAll();
+	}
+
+
 }
