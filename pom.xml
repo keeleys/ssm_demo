@@ -230,6 +230,14 @@
 			</exclusions>
 		</dependency>
 
+		<dependency>
+			<groupId>db2</groupId>
+			<artifactId>db2</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/db2jcc4-4.9.78.jar</systemPath>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>

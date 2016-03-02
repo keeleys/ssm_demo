@@ -28,7 +28,6 @@
 		<property name="minIdle" value="1"/>
 		<property name="timeBetweenEvictionRunsMillis" value="60000"/>
 		<property name="minEvictableIdleTimeMillis" value="300000"/>
-		<property name="validationQuery" value="SELECT 'x'"/>
 
 		<property name="filters" value="stat" />
 	</bean>
