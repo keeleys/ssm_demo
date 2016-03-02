@@ -22,3 +22,5 @@
 * [mybatis通用mapper的用法](https://github.com/abel533/Mapper)
 * [Beetl2.2使用说明书](http://ibeetl.com/guide/)
 * [dubbo](http://dubbo.io/User+Guide-zh.htm)
+* [springmvc](https://github.com/springside/springside4/wiki/Spring-MVC)
+* [dubbo](http://dubbo.io/User+Guide-zh.htm)
