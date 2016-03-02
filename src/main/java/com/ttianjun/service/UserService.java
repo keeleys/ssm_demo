@@ -24,7 +24,6 @@ public class UserService {
 
 	@Resource
 	private UserMapper userMapper;
-	
 	public List <User> getAll() {
 		return userMapper.getAll();
 	}

@@ -65,6 +65,7 @@
 		<property name="suffix" value=".jsp" />
 		<property name="order" value="256"/>
 	</bean>
-
+	<!--
 	<import resource="spring-dubbo.xml"/>
+	-->
 </beans>
