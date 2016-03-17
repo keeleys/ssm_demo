@@ -19,7 +19,7 @@ public class DemoTask {
     private UserService userService;
 
 
-    @Scheduled(cron="0/10 * * * * *")
+    @Scheduled(cron="0 0 1 * * *")
     public void executeTask(){
         log.info("DemoTask running");
     }

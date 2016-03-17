@@ -10,7 +10,7 @@
 	<properties>
 		<spring.version>4.2.4.RELEASE</spring.version>
 		<org.mabatis-version>3.2.8</org.mabatis-version>
-		<org.springframework.security-version>3.2.5.RELEASE</org.springframework.security-version>
+		<org.springframework.security-version>4.0.1.RELEASE</org.springframework.security-version>
 		<org.aspectj-version>1.8.1</org.aspectj-version>
 	</properties>
 	<dependencies>
@@ -230,13 +230,25 @@
 			</exclusions>
 		</dependency>
 
+		<!-- Spring Security -->
 		<dependency>
-			<groupId>db2</groupId>
-			<artifactId>db2</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/db2jcc4-4.9.78.jar</systemPath>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${org.springframework.security-version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${org.springframework.security-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${org.springframework.security-version}</version>
+		</dependency>
+
 
 	</dependencies>
 

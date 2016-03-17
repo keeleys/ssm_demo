@@ -50,6 +50,7 @@
 
 	<bean id="viewResolver" class="org.beetl.ext.spring.BeetlSpringViewResolver">
 		<property name="contentType" value="text/html;charset=UTF-8"/>
+		<property name="prefix" value="/WEB-INF/" />
 		<property name="suffix" value=".html"/>
 		<property name="viewNames">
 			<list>

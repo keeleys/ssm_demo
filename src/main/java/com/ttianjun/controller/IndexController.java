@@ -8,16 +8,22 @@ import com.ttianjun.mapper.UserMapper;
 import com.ttianjun.model.User;
 import com.ttianjun.service.OrderService;
 import com.ttianjun.service.UserService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.ttianjun.base.BaseController;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import redis.clients.jedis.ShardedJedis;
 import redis.clients.jedis.ShardedJedisPool;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -45,18 +51,37 @@ public class IndexController extends BaseController {
 		final int pageSize = 20;
 		PageInfo<User> pageInfo= userService.findByPage(pageNum,pageSize);
 		model.addAttribute("page",pageInfo);
-		return "/template/list";
+		return renderTemp("list");
 	}
-	@RequestMapping(value="/userDetail/{userId}.html")
+	@RequestMapping(value="/detail/{userId}.html")
 	public String userDetail(@PathVariable("userId") Integer userId,Model model){
 
 		User user = userMapper.selectByPrimaryKey(userId);
 		model.addAttribute("user",user);
 
-		return "/template/detail";
+		return renderTemp("detail");
+	}
+	@RequestMapping(value="/login.html")
+	public String login(){
+		return renderTemp("login");
+	}
+	@RequestMapping(value="/accErr.html")
+	public String accErr(){
+		return renderTemp("acc_err");
 	}
 
-	//redis例子
+
+	@RequestMapping(value="/logout", method = RequestMethod.GET)
+	public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (auth != null){
+			new SecurityContextLogoutHandler().logout(request, response, auth);
+		}
+		return "redirect:/index.html";
+	}
+
+	/**
+	redis例子
 	@Resource
 	private ShardedJedisPool shardedJedisPool;
 
@@ -69,6 +94,10 @@ public class IndexController extends BaseController {
 		user.setName(jedis.get("tian"));
 		return user;
 	}
+	*/
+
+	/**
+	 * dubbo 例子
 
 	@Reference(group = "sz")
 	private OrderService orderService;
@@ -79,5 +108,5 @@ public class IndexController extends BaseController {
 		return orderService.getAll();
 	}
 
-
+	 */
 }

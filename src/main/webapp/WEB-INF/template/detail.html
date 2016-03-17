@@ -5,16 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta content="yes" name="apple-mobile-web-app-capable" />
 <meta content="telephone=no" name="format-detection" />
-<title>ssm首页</title>
-<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
-<script type="text/javascript" src="js/jquery.js"></script>
+<title>user detail</title>
+<link rel="stylesheet" href="${ctxPath}/css/style.css" type="text/css" media="screen" />
+<link rel="shortcut icon" href="${ctxPath}/favicon.ico">
+<script type="text/javascript" src="${ctxPath}/js/jquery.js"></script>
+<!--[if lt IE 9]>
 <![endif]-->
 </head>
 
 <body>
-<h1>index</h1>
-<h3><a href="/list-1.html">查看用户列表</a> </h3>
-<h3><a href="/redis.html">查看redis</a> </h3>
-<h3><a href="/dubbo.html">查看dubbo</a> </h3>
+<h1>user detail</h1>
+<h2>id : ${user.id}</h2>
+<h2>name : ${user.name}</h2>
 </body>
 </html>

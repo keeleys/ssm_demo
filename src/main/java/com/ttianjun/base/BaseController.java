@@ -11,4 +11,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
  */
 public class BaseController{
     protected Logger log = LoggerFactory.getLogger(this.getClass());
+    public String renderTemp(String path){
+        return "/template/"+path;
+    }
 }
