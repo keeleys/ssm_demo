@@ -3,7 +3,7 @@
 ## 包含技术
 * spring 4.2.4.RELEASE
 * springmvc 4.2.4.RELEASE
-* spring Scheduled 定时任务
+* Spring Security 权限管理
 * mybaits3.2.8+扩展组建(pagehelper + tk.mybatis)
 * druid 1.02
 * mysql - 5.7
